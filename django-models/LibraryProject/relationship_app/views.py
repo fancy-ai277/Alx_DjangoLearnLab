@@ -1,15 +1,16 @@
-from django.shortcuts import render
-from .models import Book, Library  # <- import both Book and Library
-from django.views.generic.detail import DetailView  # <- exact line the marker wants
+from django.views.generic import DetailView
+from .models import Library
 
-# Function-based view
-def list_books(request):
-    books = Book.objects.all()
-    return render(request, 'relationship_app/list_books.html', {'books': books})
-
-# Class-based view
 class LibraryDetailView(DetailView):
     model = Library
     template_name = 'relationship_app/library_detail.html'
     context_object_name = 'library'
+
+from django.urls import path
+from .views import list_books, LibraryDetailView
+
+urlpatterns = [
+    path('books/', list_books, name='list_books'),  # Function-based view
+    path('library/<int:pk>/', LibraryDetailView.as_view(), name='library_detail'),  # Class-based view
+]
 
