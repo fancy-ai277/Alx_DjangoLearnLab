@@ -29,3 +29,11 @@ urlpatterns = [
     path('delete-book/<int:pk>/', views.delete_book, name='delete_book'),
 ]
 
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('relationship_app.urls')),  # include app URLs
+]
+
