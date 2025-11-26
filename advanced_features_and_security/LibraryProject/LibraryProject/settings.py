@@ -142,3 +142,14 @@ SESSION_COOKIE_SECURE = True
 SECURE_HSTS_SECONDS = 3600
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
+
+# --- HTTPS and SSL Settings ---
+
+# Redirect all HTTP requests to HTTPS
+SECURE_SSL_REDIRECT = True
+
+# HTTP Strict Transport Security (HSTS)
+# Instructs browsers to only connect via HTTPS
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Apply to all subdomains
+SECURE_HSTS_PRELOAD = True  # Allow site to be preloaded in browsers
