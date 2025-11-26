@@ -35,3 +35,16 @@ def delete_book(request, pk):
     book.delete()
     return redirect('book_list')
 
+from django.shortcuts import render, redirect
+from .forms import ExampleForm
+
+def example_view(request):
+    if request.method == "POST":
+        form = ExampleForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('book_list')  # Replace with your book list view
+    else:
+        form = ExampleForm()
+    return render(request, 'bookshelf/form_example.html', {'form': form})
+
