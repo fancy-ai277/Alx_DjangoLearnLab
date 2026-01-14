@@ -1,0 +1,13 @@
+# Python cache files
+__pycache__/
+*.pyc
+
+# Django local database
+db.sqlite3
+
+# VSCode settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
